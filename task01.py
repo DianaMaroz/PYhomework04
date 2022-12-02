@@ -21,7 +21,6 @@ def create_polinominal(power, min, max):
         koefficient = random.randint(min, max)
         if koefficient != 0:
             equation += f'{koefficient} * x ** {k} + '
-
     second_to_last_koef = random.randint(min, max)
     if second_to_last_koef != 0:
         equation += f'{second_to_last_koef} * x + '
@@ -35,6 +34,17 @@ def create_polinominal(power, min, max):
 power_k = input_int('Введите натуральную степень: ', 'Это должно быть целое число, попробуйте еще раз')
 
 first_equitation = create_polinominal(power_k, 0, 100)
+
+path = 'equation1.txt'
+data = open(path, 'w')
+data.write(first_equitation)
+data.close()
+
 second_equitation = create_polinominal(power_k, 0, 100)
+path2 = 'equation2.txt'
+data2 = open(path2, 'w')
+data2.write(second_equitation)
+data2.close()
+
 print(first_equitation)
 print(second_equitation)
