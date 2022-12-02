@@ -35,6 +35,12 @@ print(string2_dict)
 
 def sum_polinomial(sm_dict1: dict, sm_dict2 : dict):
     sum_polinom = ''
+    for key in sm_dict1:
+        if sm_dict2.get(key) == None:
+            sm_dict2[key] = '0'
+    for key in sm_dict2:
+        if sm_dict1.get(key) == None:
+            sm_dict1[key] = '0'
     for i in sm_dict1:
         if i != '0' and i != '1':
             sum_polinom += f'{str(int(sm_dict1.get(i))+int(sm_dict2.get(i)))} * x **{i} + '
@@ -47,3 +53,7 @@ def sum_polinomial(sm_dict1: dict, sm_dict2 : dict):
 sum_str1_str2 = sum_polinomial(string1_dict, string2_dict )
 print(sum_str1_str2)
 
+path = 'equation3.txt'
+data = open(path, 'w')
+data.write(sum_str1_str2)
+data.close()
